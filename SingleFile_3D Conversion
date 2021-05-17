@@ -1,0 +1,31 @@
+import csv
+import sys
+f = open('Qx_layer1.csv')
+g = open('Qx_layer2.csv')
+h = open('Qy_layer1.csv')
+i = open('Qy_layer2.csv')
+j = open('Qz_layer1.csv')
+k = open('Qz_layer2.csv')
+csv_f = csv.reader(f)
+csv_g = csv.reader(g)
+csv_h = csv.reader(h)
+csv_i = csv.reader(i)
+csv_j = csv.reader(j)
+csv_k = csv.reader(k)
+numcols = 10
+sys.stdout = open('testing.txt', 'w+')
+for index, row in enumerate(csv_f):
+    for i in range(numcols):
+        if index < 10:
+            print('%f' % (index) + '\t' + '%f' % (i) + '\t' + '1' + '\t' + str(row[i]))
+        elif index == 9 and i == 9:
+            break
+print('\n')
+print('praying....')
+for index, row in enumerate(csv_g):
+    for i in range(numcols):
+        if index < 10:
+            print('%f' % (index) + '\t' + '%f' % (i) + '\t' + '2' + '\t' + str(row[i]))
+        elif index == 9 and i == 9:
+            break
+sys.stdout.close()
